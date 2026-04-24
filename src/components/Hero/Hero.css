@@ -1,0 +1,217 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%);
+  transform: translateY(-50%);
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== LAYOUT PRINCIPAL: Logo esquerda, texto direita ===== */
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 40px;
+}
+
+/* ===== LOGO JHM ===== */
+.hero-logo-side {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jhm-logo {
+  width: 460px;
+  height: 460px;
+  object-fit: contain;
+}
+
+/* ===== TEXTO DIREITO ===== */
+.hero-text-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-first,
+.title-last {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.title-first {
+  color: var(--primary-hover);
+  font-size: 4.5rem;
+}
+
+.title-last {
+  color: var(--primary);
+  font-size: 6.5rem;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow:
+    0 0 20px rgba(255, 38, 60, 0.6),
+    0 0 40px rgba(255, 38, 60, 0.3),
+    0 0 80px rgba(255, 38, 60, 0.15);
+  animation: neon-startup 2.5s ease-out forwards;
+}
+
+@keyframes neon-startup {
+  0%, 10% { opacity: 0.3; text-shadow: none; color: #660f18; }
+  11%, 13% { opacity: 1; text-shadow: 0 0 20px rgba(255,38,60,0.6); color: var(--primary); }
+  14%, 16% { opacity: 0.3; text-shadow: none; color: #660f18; }
+  17%, 19% { opacity: 1; text-shadow: 0 0 20px rgba(255,38,60,0.6); color: var(--primary); }
+  20%, 39% { opacity: 0.2; text-shadow: none; color: #660f18; }
+  40%, 45% { opacity: 1; text-shadow: 0 0 20px rgba(255,38,60,0.6); color: var(--primary); }
+  46%, 49% { opacity: 0.4; text-shadow: none; color: #660f18; }
+  50%, 100% {
+    opacity: 1;
+    color: var(--primary);
+    text-shadow:
+      0 0 20px rgba(255, 38, 60, 0.6),
+      0 0 40px rgba(255, 38, 60, 0.3),
+      0 0 80px rgba(255, 38, 60, 0.15);
+  }
+}
+
+
+.dev-text {
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border-radius: var(--radius-full);
+}
+
+.social-icon {
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+}
+
+.social-icon:hover {
+  color: var(--primary);
+  transform: translateY(-5px);
+  filter: drop-shadow(0 5px 10px var(--primary-glow));
+}
+
+.highlight-icon {
+  color: var(--primary-hover);
+}
+
+/* ===== RESPONSIVO ===== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .hero-content {
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .jhm-logo {
+    width: 240px;
+    height: 240px;
+  }
+
+  .title-first {
+    font-size: 3.2rem;
+  }
+
+  .title-last {
+    font-size: 4.5rem;
+  }
+
+  .dev-text {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile: empilha logo em cima, texto embaixo */
+@media (max-width: 640px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .hero-text-side {
+    align-items: center;
+  }
+
+  .hero-branding {
+    align-items: center;
+  }
+
+  .jhm-logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .title-first {
+    font-size: 2.5rem;
+  }
+
+  .title-last {
+    font-size: 3.5rem;
+  }
+
+  .dev-text {
+    font-size: 1.2rem;
+  }
+
+  .social-links {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

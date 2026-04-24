@@ -1,0 +1,36 @@
+:root {
+  /* Colors */
+  --bg-main: #0a0a0a;
+  --bg-secondary: #121212;
+  --bg-glass: rgba(18, 18, 18, 0.6);
+  --bg-glass-hover: rgba(30, 30, 30, 0.8);
+  
+  --primary: #FF263C; /* O Neon Red das imagens originais */
+  --primary-hover: #E40037;
+  --primary-glow: rgba(255, 38, 60, 0.5);
+  
+  --text-main: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  
+  --border-glass: rgba(255, 255, 255, 0.05);
+  
+  /* Typography */
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Comfortaa', cursive;
+  --font-retro: 'Press Start 2P', monospace;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  /* Container */
+  --max-width: 1100px;
+}
