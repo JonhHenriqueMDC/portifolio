@@ -1,78 +1,209 @@
-.header {
+.premium-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: all var(--transition-normal);
-  padding: 1.5rem 0;
+  padding: clamp(0.6rem, 1.5vh, 2.5rem) 0;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  pointer-events: none;
 }
 
-.header.scrolled {
-  padding: 1rem 0;
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-glass);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+/* Ocultar header no mobile conforme solicitado */
+@media (max-width: 900px) {
+  .premium-header {
+    display: none !important;
+  }
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 2vw, 3rem);
+  width: 100%;
+  pointer-events: auto;
 }
 
-.logo {
+/* LOGO */
+.logo-jhm {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
+  font-size: clamp(0.75rem, 1.2vw, 1.1rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  flex-shrink: 0;
 }
 
-.logo span {
+/* RIGHT PLACEHOLDER (PT) */
+.lang-switcher {
+  display: flex;
+  gap: clamp(6px, 0.8vw, 12px);
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  font-family: var(--font-heading);
+  font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.lang-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.lang-btn.active {
   color: var(--primary);
-  font-weight: 900;
+  background: rgba(255, 38, 60, 0.1);
 }
 
+/* NAVIGATION */
 .desktop-nav {
-  display: none;
-  gap: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
-  .desktop-nav {
-    display: flex;
-  }
+/* T invertido global centralizado, pequeno inicialmente */
+.menu-t-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px; /* curta inicialmente */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-t-tick {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 6px; /* pequeno traço vertical para baixo */
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Quando passa o mouse no menu inteiro, a linha se expande */
+.desktop-nav:hover .menu-t-line {
+  width: 100%; /* Atravessa o menu inteiro */
+}
+
+.nav-items-wrapper {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 2rem);
+  padding-top: 10px; /* Espaço entre o T e os nomes */
 }
 
 .nav-link {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
   position: relative;
-  transition: color var(--transition-fast);
-  padding: 0.5rem 0;
+  padding: 0.25rem 0; 
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: clamp(0.55rem, 0.85vw, 0.75rem);
+  letter-spacing: clamp(1px, 0.15vw, 2px);
+  transition: color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
 }
 
-.nav-link:hover {
-  color: var(--primary);
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
 }
 
-.nav-link::after {
-  content: '';
+/* Brackets { } - Apenas no hover, vermelho */
+.nav-text {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.nav-text::before {
+  content: '{';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width var(--transition-normal);
+  left: -14px;
+  opacity: 0;
+  color: var(--primary); /* Vermelho do portfolio */
+  transform: translateX(6px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 400;
+  font-size: 0.85rem;
 }
 
-.nav-link:hover::after {
+.nav-text::after {
+  content: '}';
+  position: absolute;
+  right: -14px;
+  opacity: 0;
+  color: var(--primary); /* Vermelho do portfolio */
+  transform: translateX(-6px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.nav-link:hover .nav-text::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav-link:hover .nav-text::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Active Underline (pequeno e vermelho, próximo ao texto) */
+.active-underline {
+  position: absolute;
+  bottom: -4px; /* Bem perto do texto */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background-color: var(--primary);
+  transition: width 0.4s ease;
+}
+
+/* Apenas no item ativo a linha fica vermelha (e sem hover brackets se n estiver hover) */
+.nav-link.active .active-underline {
   width: 100%;
-  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Compact header for narrower desktops */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .nav-items-wrapper {
+    gap: clamp(0.4rem, 1vw, 1.2rem);
+  }
+
+  .nav-link {
+    font-size: clamp(0.5rem, 0.75vw, 0.7rem);
+    letter-spacing: 1px;
+  }
+
+  .nav-text::before {
+    left: -10px;
+    font-size: 0.75rem;
+  }
+
+  .nav-text::after {
+    right: -10px;
+    font-size: 0.75rem;
+  }
 }

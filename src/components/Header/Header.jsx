@@ -1,31 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import './Header.css';
 
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+const Header = ({ activeSection }) => {
+  const { language, setLanguage, t } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  const navItems = [
+    { id: 'hero', label: t.nav.hero },
+    { id: 'sobre', label: t.nav.sobre },
+    { id: 'skills', label: t.nav.skills },
+    { id: 'projetos', label: t.nav.projetos },
+    { id: 'timeline', label: t.nav.timeline },
+    { id: 'contato', label: t.nav.contato }
+  ];
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container header-content">
-        <div className="logo">
-          <span>&lt;</span> JHM <span>/&gt;</span>
+    <header className="header premium-header">
+      <div className="header-content">
+        <div className="logo-jhm">
+          &lt;JHM/&gt;
         </div>
         
         <nav className="desktop-nav">
-          <a href="#about" className="nav-link">Sobre</a>
-          <a href="#skills" className="nav-link">Skills</a>
-          <a href="#projects" className="nav-link">Projetos</a>
-          <a href="#timeline" className="nav-link">Timeline</a>
-          <a href="#contact" className="nav-link">Contato</a>
+          <div className="menu-t-line"></div>
+          <div className="menu-t-tick"></div>
+          
+          <div className="nav-items-wrapper">
+            {navItems.map((item) => (
+              <a 
+                key={item.id}
+                href={`#${item.id}`} 
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById(item.id);
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <span className="nav-text">{item.label}</span>
+                <span className="active-underline"></span>
+              </a>
+            ))}
+          </div>
         </nav>
+
+        <div className="header-right-placeholder">
+          <div className="lang-switcher">
+            {['pt', 'en', 'es'].map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setLanguage(lang)}
+                className={`lang-btn ${language === lang ? 'active' : ''}`}
+              >
+                {lang.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </header>
   );

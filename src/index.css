@@ -50,17 +50,38 @@
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #08060d;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
 body {
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -108,4 +129,50 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+.snap-container {
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+@media (max-width: 900px) {
+  .snap-container {
+    scroll-snap-type: none; /* Desbloqueia o scroll no celular */
+  }
+}
+
+.snap-container::-webkit-scrollbar {
+  display: none !important;
+}
+
+.snap-container > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Use viewport-relative padding that scales across all desktop sizes */
+  padding-top: clamp(60px, 10vh, 100px);
+  padding-bottom: clamp(10px, 2vh, 40px);
+}
+
+/* On mobile, allow natural scroll and flexible height */
+@media (max-width: 900px) {
+  .snap-container > section {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
 }

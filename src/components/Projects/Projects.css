@@ -1,0 +1,364 @@
+/* ============================================================
+   Projects Section — Premium Cards with Hover Effects
+   Preserves the existing visual identity (colors, fonts, layout)
+   ============================================================ */
+
+.projects-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  background-color: var(--background, #0a0a0a);
+  overflow: hidden;
+}
+
+.projects-section .container {
+  max-width: clamp(900px, 90vw, 1300px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding-top: clamp(50px, 8vh, 80px);
+  padding-bottom: clamp(10px, 2vh, 40px);
+}
+
+/* ——— Section Header ——— */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(10px, 2vh, 40px);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  color: #fff;
+  margin-bottom: clamp(3px, 0.5vh, 10px);
+}
+
+.section-title .highlight {
+  color: var(--primary);
+}
+
+.section-subtitle {
+  color: #aaa;
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+}
+
+/* ——— Projects Grid ——— */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 22vw, 320px), 1fr));
+  gap: clamp(10px, 1.5vw, 30px);
+  margin-bottom: clamp(8px, 1.5vh, 40px);
+  flex-shrink: 0;
+}
+
+/* ——— Project Card ——— */
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(30, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Hover: elevate + glow border */
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 38, 60, 0.45);
+  box-shadow:
+    0 8px 32px rgba(255, 38, 60, 0.12),
+    0 0 0 1px rgba(255, 38, 60, 0.1);
+}
+
+/* Glass glow overlay */
+.project-card__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 38, 60, 0.08) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-card__glow {
+  opacity: 1;
+}
+
+/* ——— Image ——— */
+.project-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(100px, 15vh, 200px);
+  overflow: hidden;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover: zoom on image */
+.project-card:hover .project-card__image {
+  transform: scale(1.08);
+}
+
+/* Gradient overlay on the image for seamless blending */
+.project-card__image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(30, 0, 0, 0.6), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ——— Body ——— */
+.project-card__body {
+  position: relative;
+  z-index: 2;
+  padding: clamp(10px, 1.2vh, 20px) clamp(12px, 1.5vw, 20px);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.6vh, 10px);
+}
+
+.project-card__title {
+  font-family: var(--font-heading);
+  font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+  color: #fff;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+  color: #bbb;
+  font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+  line-height: 1.4;
+  margin: 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ——— Tech Badges ——— */
+.project-card__techs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.project-card__tech-badge {
+  font-size: clamp(0.6rem, 0.75vw, 0.72rem);
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255, 38, 60, 0.1);
+  color: #ff4d63;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 38, 60, 0.15);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover .project-card__tech-badge {
+  background: rgba(255, 38, 60, 0.18);
+  border-color: rgba(255, 38, 60, 0.3);
+}
+
+/* ——— Action Buttons ——— */
+.project-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: clamp(4px, 0.5vh, 10px);
+}
+
+.project-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: clamp(0.65rem, 0.8vw, 0.78rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 4;
+}
+
+.project-card__btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* GitHub button */
+.project-card__btn--github {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card__btn--github:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Demo button */
+.project-card__btn--demo {
+  background: rgba(255, 38, 60, 0.15);
+  color: #ff4d63;
+  border: 1px solid rgba(255, 38, 60, 0.25);
+}
+
+.project-card__btn--demo:hover {
+  background: rgba(255, 38, 60, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 38, 60, 0.2);
+  color: #ff6b7d;
+}
+
+/* ——— GitHub Calendar ——— */
+.github-calendar-container {
+  background: rgba(30, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: clamp(8px, 1.5vh, 30px);
+  margin-top: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.github-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
+  color: #fff;
+  margin-bottom: clamp(8px, 1.5vh, 30px);
+}
+
+.calendar-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 5px;
+}
+
+.calendar-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* ——— Short desktops ——— */
+@media (min-width: 901px) and (max-height: 800px) {
+  .section-header {
+    margin-bottom: clamp(5px, 1vh, 15px);
+  }
+
+  .project-card__image-wrapper {
+    height: clamp(80px, 12vh, 140px);
+  }
+
+  .github-title {
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+    margin-bottom: clamp(5px, 1vh, 15px);
+  }
+
+  .github-calendar-container {
+    padding: clamp(5px, 1vh, 15px);
+  }
+}
+
+/* ——— Mobile Responsive ——— */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    flex-direction: row;
+    min-height: 120px;
+  }
+
+  .project-card__image-wrapper {
+    width: 35%;
+    min-width: 120px;
+    height: auto;
+    min-height: 120px;
+  }
+
+  .project-card__body {
+    width: 65%;
+    padding: 12px 14px;
+  }
+
+  .project-card__desc {
+    -webkit-line-clamp: 2;
+  }
+
+  .project-card__actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card__image-wrapper {
+    width: 100%;
+    height: 160px;
+  }
+
+  .project-card__body {
+    width: 100%;
+  }
+}

@@ -1,12 +1,6 @@
-// src/components/Skills/SkillGrid.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const TABS = [
-  { id: 'frontend', label: 'FRONTEND' },
-  { id: 'backend', label: 'BACKEND' },
-  { id: 'outros', label: 'OUTROS' },
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 const SkillGrid = ({
   activeTab,
@@ -15,6 +9,12 @@ const SkillGrid = ({
   activeSkillId,
   onSkillSelect,
 }) => {
+  const { t } = useLanguage();
+  const TABS = [
+    { id: 'frontend', label: t.skills.tabs.frontend },
+    { id: 'backend', label: t.skills.tabs.backend },
+    { id: 'outros', label: t.skills.tabs.outros },
+  ];
   return (
     <div style={{ width: '100%' }}>
       <style>{`

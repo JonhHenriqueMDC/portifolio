@@ -4,15 +4,19 @@ import { InstagramLogo, LinkedinLogo, GithubLogo, DiscordLogo } from 'phosphor-r
 
 
 
+import { useLanguage } from '../../context/LanguageContext';
+
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
-    <section className="hero" id="start">
+    <section className="hero" id="hero">
       <div className="container hero-container">
         <div className="hero-content">
 
           {/* LADO ESQUERDO — Logo JHM (arquivo estático na pasta public) */}
           <div className="hero-logo-side animate-fade-in">
-            <img src="/jhm-logo.svg" alt="JHM Logo" className="jhm-logo" />
+            <img src="./jhm-logo.svg" alt="JHM Logo" className="jhm-logo" />
           </div>
 
           {/* LADO DIREITO — Nome + subtítulo + sociais */}
@@ -24,7 +28,7 @@ const Hero = () => {
 
             <div className="hero-subtitle animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h2 className="dev-text">
-                dev <span className="highlight">Backend</span>
+                {t.hero.subtitle.split(' ')[0]} <span className="highlight">{t.hero.subtitle.split(' ')[1]}</span>
               </h2>
             </div>
 
