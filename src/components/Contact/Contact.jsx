@@ -58,10 +58,10 @@ const Contact = () => {
 
           <div className="footer-center">
             <div className="footer-socials">
-              <a href="#"><FaInstagram /></a>
-              <a href="#"><FaLinkedin /></a>
-              <a href="#"><FaDiscord /></a>
-              <a href="#"><FaGithub /></a>
+              <a href="https://www.instagram.com/jonh_moreiradc/"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/in/jonhmoreira/"><FaLinkedin /></a>
+              <a href="http://discordapp.com/users/1097684546163576972"><FaDiscord /></a>
+              <a href="https://github.com/JonhHenriqueMDC"><FaGithub /></a>
             </div>
             <p className="copyright">Copyright © 2026 JHM DEV</p>
           </div>

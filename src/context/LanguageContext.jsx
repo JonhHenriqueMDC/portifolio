@@ -95,7 +95,7 @@ export const translations = {
     },
     contact: {
       title: 'CONTATO',
-      resume: 'RESUMO (CURRICULUM)',
+      resume: 'RESUMO (CURRICULO)',
       download: 'BAIXE AGORA',
       addMe: 'ADICIONE ME',
       footerDev: 'JHM DEV',
