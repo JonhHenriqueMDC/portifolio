@@ -60,20 +60,24 @@ html, body {
   -ms-overflow-style: none !important;
 }
 
+/* On mobile, let body overflow so native touch scroll works */
+@media (max-width: 900px) {
+  html, body {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
 body {
   margin: 0;
 }
 
+/* Hide scrollbars visually but keep scroll functional */
 *::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
   background: transparent !important;
-}
-
-* {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
 }
 
 #root {
@@ -85,6 +89,13 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  #root {
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 h1,
@@ -143,7 +154,11 @@ code {
 
 @media (max-width: 900px) {
   .snap-container {
-    scroll-snap-type: none; /* Desbloqueia o scroll no celular */
+    scroll-snap-type: none;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -168,8 +183,9 @@ code {
 /* On mobile, allow natural scroll and flexible height */
 @media (max-width: 900px) {
   .snap-container > section {
+    scroll-snap-align: none;
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     max-height: none;
     overflow: visible;
     padding-top: 80px;

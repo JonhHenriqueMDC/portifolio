@@ -107,3 +107,12 @@
     font-size: clamp(0.75rem, 1vw, 0.9rem);
   }
 }
+
+/* Mobile: unlock overflow and height */
+@media (max-width: 900px) {
+  .about {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+}

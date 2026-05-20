@@ -24,6 +24,14 @@ body {
   overflow: hidden;
 }
 
+/* On mobile, unlock body scroll for native touch */
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;

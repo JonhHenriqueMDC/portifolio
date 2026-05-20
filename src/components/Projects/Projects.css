@@ -317,6 +317,20 @@
 
 /* ——— Mobile Responsive ——— */
 @media (max-width: 900px) {
+  .projects-section {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .projects-section .container {
+    height: auto;
+    max-width: 100%;
+    padding: 0 16px;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 16px;

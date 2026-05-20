@@ -152,6 +152,12 @@
 
 /* Tablets */
 @media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
   .hero-content {
     gap: 40px;
     padding: 0 24px;

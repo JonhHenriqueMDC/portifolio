@@ -127,10 +127,24 @@
 
 /* Mobile: Single column */
 @media (max-width: 900px) {
+  .timeline-section {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .timeline-section .container {
+    height: auto;
+  }
+
   .timeline-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    overflow: auto;
+    overflow: visible;
+  }
+
+  .timeline-items {
+    overflow: visible;
   }
   
   .timeline-content {

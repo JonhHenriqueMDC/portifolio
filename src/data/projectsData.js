@@ -10,31 +10,22 @@ const projectsData = [
     description:
       "Sistema desenvolvido seguindo SRP, DIP, GRASP e arquitetura MVC + Ports/Adapters.",
     image: "/projects/biblioteca.png",
-    github: "https://github.com/JonhHenriqueMDC/projeto",
+    github: "https://github.com/JonhHenriqueMDC",
     demo: "",
     technologies: ["React", "Node", "PostgreSQL"],
     featured: true,
   },
   {
-    title: "Lollapalooza Brasil",
+    title: "Sistema de Monitoria",
     description:
-      "O app oficial do #LollaBR dos anos de 2024 e 2025!",
-    image: "/projects/lollapalooza.png",
+      "Sistema desenvolvido durante atividades acadêmicas da Universidade de Fortaleza (UNIFOR), aplicando conceitos de arquitetura de software, organização em camadas, boas práticas de desenvolvimento e foco na resolução de problemas reais do ambiente universitário.",
+    image: "/projects/monitoria.png",
     github: "https://github.com/JonhHenriqueMDC",
     demo: "",
-    technologies: ["Flutter", "Dart", "SQLite"],
+    technologies: ["Reactv", "Node", "PostgreSQL"],
     featured: true,
   },
-  {
-    title: "E-Commerce Premium",
-    description:
-      "Plataforma de vendas com alto desempenho e design moderno.",
-    image: "/projects/ecommerce.png",
-    github: "https://github.com/JonhHenriqueMDC",
-    demo: "",
-    technologies: ["React", "Node.js", "MongoDB"],
-    featured: true,
-  },
+
 ];
 
 export default projectsData;
