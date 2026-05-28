@@ -36,7 +36,7 @@ const Hero = () => {
               <a href="https://www.instagram.com/jonh_moreiradc/" target="_blank" rel="noreferrer" className="social-icon">
                 <InstagramLogo size={32} weight="fill" />
               </a>
-              <a href="https://www.linkedin.com/in/jonhmoreira/" target="_blank" rel="noreferrer" className="social-icon highlight-icon">
+              <a href="https://www.linkedin.com/in/jonhmoreira" target="_blank" rel="noreferrer" className="social-icon highlight-icon">
                 <LinkedinLogo size={32} weight="fill" />
               </a>
               <a href="http://discordapp.com/users/1097684546163576972" target="_blank" rel="noreferrer" className="social-icon">
