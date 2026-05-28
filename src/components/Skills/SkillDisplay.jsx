@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const SkillDisplay = ({ activeSkill }) => {
+  const { t } = useLanguage();
   if (!activeSkill) return null;
 
   return (
@@ -35,7 +37,7 @@ const SkillDisplay = ({ activeSkill }) => {
           {/* DOMÍNIO + ESTRELAS */}
           <div className="flex h-[18px] w-full items-center justify-between">
             <p className="font-['Comfortaa',sans-serif] text-[12px] font-medium tracking-wide text-white/90">
-              DOMÍNIO
+              {t.skills.dominio}
             </p>
             <div className="flex items-center gap-[2px] text-[#F2C94C]">
               {[1, 2, 3, 4, 5].map((star) => (

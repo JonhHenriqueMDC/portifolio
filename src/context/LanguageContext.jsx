@@ -41,19 +41,6 @@ export const translations = {
         }
       ]
     },
-    skills: {
-      title: 'SKILLS',
-      tabs: {
-        frontend: 'FRONTEND',
-        backend: 'BACKEND',
-        outros: 'OUTROS'
-      }
-    },
-    projects: {
-      title: 'MEUS PROJETOS',
-      subtitle: 'Alguns dos meus trabalhos recentes',
-      github: 'Minhas Contribuições'
-    },
     timeline: {
       title: 'TIMELINE',
       expTitle: 'Experiências',
@@ -76,22 +63,37 @@ export const translations = {
         }
       ],
       education: [
-              {
-                date: '2018 - 2021',
-                title: 'Ensino Médio / Técnico em Eletromecânica - Escola Estadual de Educação Profissional Eusébio de Queiroz',
-                desc: 'Formação integrada ao ensino médio, com habilitação técnica em Eletromecânica e base em manutenção, automação, sistemas elétricos, mecânicos e projetos técnicos.'
-              },
-              {
-                date: '2021 - 2023',
-                title: 'Engenharia de Software - Universidade Federal do Ceará',
-                desc: 'Formação com foco em desenvolvimento de software, banco de dados, sistemas operacionais, arquitetura de computadores, engenharia de requisitos e gerência de projetos.'
-              },
-              {
-                date: '2024 - Presente',
-                title: 'Ciência da Computação - Universidade de Fortaleza',
-                desc: 'Graduação em andamento, com estudos em banco de dados, sistemas operacionais, arquitetura e organização de computadores, programação, estruturas de dados e projetos de software.'
-              }
+        {
+          date: '2018 - 2021',
+          title: 'Ensino Médio / Técnico em Eletromecânica - Escola Estadual de Educação Profissional Eusébio de Queiroz',
+          desc: 'Formação integrada ao ensino médio, com habilitação técnica em Eletromecânica e base em manutenção, automação, sistemas elétricos, mecânicos e projetos técnicos.'
+        },
+        {
+          date: '2021 - 2023',
+          title: 'Engenharia de Software - Universidade Federal do Ceará',
+          desc: 'Formação com foco em desenvolvimento de software, banco de dados, sistemas operacionais, arquitetura de computadores, engenharia de requisitos e gerência de projetos.'
+        },
+        {
+          date: '2024 - Presente',
+          title: 'Ciência da Computação - Universidade de Fortaleza',
+          desc: 'Graduação em andamento, com estudos em banco de dados, sistemas operacionais, arquitetura e organização de computadores, programação, estruturas de dados e projetos de software.'
+        }
       ]
+    },
+    skills: {
+      title: 'SKILLS',
+      dominio: 'DOMÍNIO',
+      tabs: {
+        frontend: 'FRONTEND',
+        backend: 'BACKEND',
+        outros: 'OUTROS'
+      }
+    },
+    projects: {
+      title: 'MEUS PROJETOS',
+      subtitle: 'Alguns dos meus trabalhos recentes',
+      github: 'Minhas Contribuições',
+      viewProject: 'Ver Projeto'
     },
     contact: {
       title: 'CONTATO',
@@ -143,6 +145,7 @@ export const translations = {
     },
     skills: {
       title: 'SKILLS',
+      dominio: 'DOMAIN',
       tabs: {
         frontend: 'FRONTEND',
         backend: 'BACKEND',
@@ -152,7 +155,8 @@ export const translations = {
     projects: {
       title: 'MY PROJECTS',
       subtitle: 'Some of my recent work',
-      github: 'My Contributions'
+      github: 'My Contributions',
+      viewProject: 'View Project'
     },
     timeline: {
       title: 'TIMELINE',
@@ -177,14 +181,19 @@ export const translations = {
       ],
       education: [
         {
-          date: '2017 - 2019',
-          title: 'High School / Technician - Fundação Matias Machline',
-          desc: 'Academic course recognized by MEC with technical specialization in informatics (support, development, and project).'
+          date: '2018 - 2021',
+          title: 'High School / Electromechanics Technician - Eusébio de Queiroz State Vocational School',
+          desc: 'Integrated high school and technical training with specialization in Electromechanics, covering maintenance, automation, electrical and mechanical systems, and technical projects.'
         },
         {
-          date: '2023 - Present',
-          title: 'Computer Science - Uninorte',
-          desc: 'Database, Operating Systems, Architecture and Computer Organization, and Project Management are some of the subjects I practice in the professional field.'
+          date: '2021 - 2023',
+          title: 'Software Engineering - Federal University of Ceará (UFC)',
+          desc: 'Degree focused on software development, databases, operating systems, computer architecture, requirements engineering, and project management.'
+        },
+        {
+          date: '2024 - Present',
+          title: 'Computer Science - University of Fortaleza (UNIFOR)',
+          desc: 'Ongoing undergraduate degree, with studies in databases, operating systems, computer architecture and organization, programming, data structures, and software projects.'
         }
       ]
     },
@@ -238,6 +247,7 @@ export const translations = {
     },
     skills: {
       title: 'SKILLS',
+      dominio: 'DOMINIO',
       tabs: {
         frontend: 'FRONTEND',
         backend: 'BACKEND',
@@ -247,7 +257,8 @@ export const translations = {
     projects: {
       title: 'MIS PROYECTOS',
       subtitle: 'Algunos de mis trabajos recientes',
-      github: 'Mis Contribuciones'
+      github: 'Mis Contribuciones',
+      viewProject: 'Ver Proyecto'
     },
     timeline: {
       title: 'LÍNEA DE TIEMPO',
@@ -272,14 +283,19 @@ export const translations = {
       ],
       education: [
         {
-          date: '2017 - 2019',
-          title: 'Bachillerato / Técnico - Fundação Matias Machline',
-          desc: 'Curso académico reconocido por el MEC con especialización técnica en informática (soporte, desarrollo y proyecto).'
+          date: '2018 - 2021',
+          title: 'Bachillerato / Técnico en Electromecánica - Escuela Estatal de Educación Profesional Eusébio de Queiroz',
+          desc: 'Formación integrada de bachillerato con habilitación técnica en Electromecánica, cubriendo mantenimiento, automatización, sistemas eléctricos, mecánicos y proyectos técnicos.'
         },
         {
-          date: '2023 - Presente',
-          title: 'Ciencias de la Computación - Uninorte',
-          desc: 'Base de Datos, Sistemas Operativos, Arquitectura y Organización de Computadoras, y Gestión de Proyectos son algunas de las materias que practico en el ámbito profesional.'
+          date: '2021 - 2023',
+          title: 'Ingeniería de Software - Universidad Federal de Ceará (UFC)',
+          desc: 'Carrera enfocada en desarrollo de software, bases de datos, sistemas operativos, arquitectura de computadoras, ingeniería de requisitos y gestión de proyectos.'
+        },
+        {
+          date: '2024 - Presente',
+          title: 'Ciencias de la Computación - Universidad de Fortaleza (UNIFOR)',
+          desc: 'Pregrado en curso, con estudios en bases de datos, sistemas operativos, arquitectura y organización de computadoras, programación, estructuras de datos y proyectos de software.'
         }
       ]
     },

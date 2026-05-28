@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { useLanguage } from '../../context/LanguageContext';
 
 const ProjectCard = ({ project, index }) => {
+  const { t } = useLanguage();
   const baseUrl = import.meta.env.BASE_URL;
 
   // Build image path using BASE_URL
@@ -97,7 +99,7 @@ const ProjectCard = ({ project, index }) => {
               aria-label={`Ver projeto - ${project.title}`}
             >
               <FiExternalLink />
-              <span>Ver Projeto</span>
+              <span>{t.projects.viewProject}</span>
             </a>
           )}
         </div>

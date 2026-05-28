@@ -14,52 +14,69 @@ const Header = ({ activeSection }) => {
     { id: 'contato', label: t.nav.contato }
   ];
   return (
-    <header className="header premium-header">
-      <div className="header-content">
-        <div className="logo-jhm">
-          &lt;JHM/&gt;
-        </div>
-        
-        <nav className="desktop-nav">
-          <div className="menu-t-line"></div>
-          <div className="menu-t-tick"></div>
+    <>
+      <header className="header premium-header">
+        <div className="header-content">
+          <div className="logo-jhm">
+            &lt;JHM/&gt;
+          </div>
           
-          <div className="nav-items-wrapper">
-            {navItems.map((item) => (
-              <a 
-                key={item.id}
-                href={`#${item.id}`} 
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const target = document.getElementById(item.id);
-                  if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                <span className="nav-text">{item.label}</span>
-                <span className="active-underline"></span>
-              </a>
-            ))}
-          </div>
-        </nav>
+          <nav className="desktop-nav">
+            <div className="nav-items-wrapper">
+              {navItems.map((item) => (
+                <a 
+                  key={item.id}
+                  href={`#${item.id}`} 
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.getElementById(item.id);
+                    if (target) {
+                      target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <span className="nav-text">{item.label}</span>
+                  <span className="active-underline"></span>
+                </a>
+              ))}
+            </div>
+          </nav>
 
-        <div className="header-right-placeholder">
-          <div className="lang-switcher">
-            {['pt', 'en', 'es'].map((lang) => (
-              <button
-                key={lang}
-                onClick={() => setLanguage(lang)}
-                className={`lang-btn ${language === lang ? 'active' : ''}`}
-              >
-                {lang.toUpperCase()}
-              </button>
-            ))}
+          <div className="header-right-placeholder">
+            <div className="lang-switcher">
+              {['pt', 'en', 'es'].map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`lang-btn ${language === lang ? 'active' : ''}`}
+                >
+                  {lang.toUpperCase()}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+      </header>
+
+      {/* MOBILE LANGUAGE SWITCHER */}
+      <div className="mobile-lang-switcher">
+        {[
+          { code: 'pt', label: 'PT', flag: '🇧🇷' },
+          { code: 'en', label: 'EN', flag: '🇺🇸' },
+          { code: 'es', label: 'ES', flag: '🇪🇸' }
+        ].map((item) => (
+          <button
+            key={item.code}
+            onClick={() => setLanguage(item.code)}
+            className={`mobile-lang-btn ${language === item.code ? 'active' : ''}`}
+          >
+            <span className="mobile-lang-flag">{item.flag}</span>
+            <span className="mobile-lang-text">{item.label}</span>
+          </button>
+        ))}
       </div>
-    </header>
+    </>
   );
 };
 

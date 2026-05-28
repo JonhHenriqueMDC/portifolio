@@ -1,13 +1,14 @@
 // src/components/Skills/SkillsSection.jsx
 import React, { useState, useCallback } from 'react';
-import { skillsData } from '../../data/skillsData';
+import { getSkillsData } from '../../data/skillsData';
 import PhoneMockup from './PhoneMockup';
 import SkillGrid from './SkillGrid';
 
 import { useLanguage } from '../../context/LanguageContext';
 
 const SkillsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const skillsData = getSkillsData(language);
   const [activeTab, setActiveTab] = useState('frontend');
   const [activeSkillId, setActiveSkillId] = useState(skillsData.frontend[0].id);
 
@@ -104,6 +105,15 @@ const SkillsSection = () => {
 
         /* RESPONSIVO */
         @media (max-width: 900px) {
+          #skills {
+            min-height: auto;
+            height: auto;
+            overflow: visible;
+          }
+          .skills-container {
+            max-width: 100%;
+            padding: 60px 20px 40px;
+          }
           .skills-layout {
             flex-direction: column;
             align-items: center;
@@ -140,36 +150,35 @@ const SkillsSection = () => {
         }
       `}</style>
 
-      <div className="skills-bg">
-        <div className="skills-container">
-          <h2 className="skills-title">SKILLS</h2>
+      <div className="skills-bg" />
+      <div className="skills-container">
+        <h2 className="skills-title">{t.skills.title}</h2>
 
-          <div className="skills-layout">
-            {/* CELULAR */}
-            <div className="skills-phone-wrapper">
-              <div
-                className="phone-scale-inner"
-                style={{ transform: `scale(${SCALE})`, transformOrigin: 'top left' }}
-              >
-                <PhoneMockup
-                  activeSkill={activeSkill}
-                  activeCategoryData={activeCategoryData}
-                  activeSkillId={activeSkillId}
-                  onSkillSelect={handleSkillSelect}
-                />
-              </div>
-            </div>
-
-            {/* PAINEL DIREITO */}
-            <div className="skills-grid-panel">
-              <SkillGrid
-                activeTab={activeTab}
-                onTabChange={handleTabChange}
+        <div className="skills-layout">
+          {/* CELULAR */}
+          <div className="skills-phone-wrapper">
+            <div
+              className="phone-scale-inner"
+              style={{ transform: `scale(${SCALE})`, transformOrigin: 'top left' }}
+            >
+              <PhoneMockup
+                activeSkill={activeSkill}
                 activeCategoryData={activeCategoryData}
                 activeSkillId={activeSkillId}
                 onSkillSelect={handleSkillSelect}
               />
             </div>
+          </div>
+
+          {/* PAINEL DIREITO */}
+          <div className="skills-grid-panel">
+            <SkillGrid
+              activeTab={activeTab}
+              onTabChange={handleTabChange}
+              activeCategoryData={activeCategoryData}
+              activeSkillId={activeSkillId}
+              onSkillSelect={handleSkillSelect}
+            />
           </div>
         </div>
       </div>

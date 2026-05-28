@@ -165,12 +165,17 @@ export const icons = {
   notion: <IconBox color="#ffffff"><SiNotion /></IconBox>,
 };
 
-export const skillsData = {
+// Raw data with descriptions per language
+const rawSkillsData = {
   frontend: [
     {
       id: 'react',
       name: 'React',
-      desc: 'Biblioteca JavaScript para construção de interfaces dinâmicas e componentizadas.',
+      desc: {
+        pt: 'Biblioteca JavaScript para construção de interfaces dinâmicas e componentizadas.',
+        en: 'JavaScript library for building dynamic and component-based interfaces.',
+        es: 'Biblioteca JavaScript para construir interfaces dinámicas y basadas en componentes.',
+      },
       stars: 4,
       color: '#61DAFB',
       icon: icons.react,
@@ -178,7 +183,11 @@ export const skillsData = {
     {
       id: 'angular',
       name: 'Angular',
-      desc: 'Framework completo para desenvolvimento de aplicações web robustas utilizando TypeScript.',
+      desc: {
+        pt: 'Framework completo para desenvolvimento de aplicações web robustas utilizando TypeScript.',
+        en: 'Full-featured framework for building robust web applications using TypeScript.',
+        es: 'Framework completo para el desarrollo de aplicaciones web robustas con TypeScript.',
+      },
       stars: 3,
       color: '#DD0031',
       icon: icons.angular,
@@ -186,7 +195,11 @@ export const skillsData = {
     {
       id: 'framerMotion',
       name: 'Framer Motion',
-      desc: 'Biblioteca de animação para React que permite criar interfaces fluidas e interativas.',
+      desc: {
+        pt: 'Biblioteca de animação para React que permite criar interfaces fluidas e interativas.',
+        en: 'Animation library for React that enables fluid and interactive interfaces.',
+        es: 'Biblioteca de animación para React que permite crear interfaces fluidas e interactivas.',
+      },
       stars: 3,
       color: '#E40037',
       icon: icons.framerMotion,
@@ -194,7 +207,11 @@ export const skillsData = {
     {
       id: 'bootstrap',
       name: 'Bootstrap',
-      desc: 'Framework CSS para criação rápida de layouts responsivos e padronizados.',
+      desc: {
+        pt: 'Framework CSS para criação rápida de layouts responsivos e padronizados.',
+        en: 'CSS framework for quickly creating responsive and standardized layouts.',
+        es: 'Framework CSS para crear rápidamente layouts responsivos y estandarizados.',
+      },
       stars: 3,
       color: '#7952B3',
       icon: icons.bootstrap,
@@ -202,7 +219,11 @@ export const skillsData = {
     {
       id: 'tailwind',
       name: 'Tailwind CSS',
-      desc: 'Framework utilitário que permite estilização rápida e altamente customizável.',
+      desc: {
+        pt: 'Framework utilitário que permite estilização rápida e altamente customizável.',
+        en: 'Utility-first framework that enables fast and highly customizable styling.',
+        es: 'Framework de utilidades que permite una estilización rápida y altamente personalizable.',
+      },
       stars: 4,
       color: '#38B2AC',
       icon: icons.tailwind,
@@ -210,7 +231,11 @@ export const skillsData = {
     {
       id: 'antDesign',
       name: 'Ant Design',
-      desc: 'Biblioteca de componentes UI voltada para aplicações empresariais e sistemas complexos.',
+      desc: {
+        pt: 'Biblioteca de componentes UI voltada para aplicações empresariais e sistemas complexos.',
+        en: 'UI component library aimed at enterprise applications and complex systems.',
+        es: 'Biblioteca de componentes UI orientada a aplicaciones empresariales y sistemas complejos.',
+      },
       stars: 2,
       color: '#1890FF',
       icon: icons.antDesign,
@@ -221,7 +246,11 @@ export const skillsData = {
     {
       id: 'nodejs',
       name: 'Node.js',
-      desc: 'Ambiente de execução JavaScript para construção de aplicações back-end e APIs.',
+      desc: {
+        pt: 'Ambiente de execução JavaScript para construção de aplicações back-end e APIs.',
+        en: 'JavaScript runtime environment for building back-end applications and APIs.',
+        es: 'Entorno de ejecución JavaScript para construir aplicaciones back-end y APIs.',
+      },
       stars: 5,
       color: '#339933',
       icon: icons.nodejs,
@@ -229,7 +258,11 @@ export const skillsData = {
     {
       id: 'express',
       name: 'Express',
-      desc: 'Framework minimalista para criação de APIs e servidores com Node.js.',
+      desc: {
+        pt: 'Framework minimalista para criação de APIs e servidores com Node.js.',
+        en: 'Minimalist framework for creating APIs and servers with Node.js.',
+        es: 'Framework minimalista para crear APIs y servidores con Node.js.',
+      },
       stars: 5,
       color: '#ffffff',
       icon: icons.express,
@@ -237,7 +270,11 @@ export const skillsData = {
     {
       id: 'python',
       name: 'Python',
-      desc: 'Linguagem versátil utilizada em automação, back-end e análise de dados.',
+      desc: {
+        pt: 'Linguagem versátil utilizada em automação, back-end e análise de dados.',
+        en: 'Versatile language used in automation, back-end development, and data analysis.',
+        es: 'Lenguaje versátil utilizado en automatización, back-end y análisis de datos.',
+      },
       stars: 4,
       color: '#FFD43B',
       icon: icons.python,
@@ -245,7 +282,11 @@ export const skillsData = {
     {
       id: 'java',
       name: 'Java',
-      desc: 'Linguagem robusta amplamente utilizada no desenvolvimento de sistemas corporativos.',
+      desc: {
+        pt: 'Linguagem robusta amplamente utilizada no desenvolvimento de sistemas corporativos.',
+        en: 'Robust language widely used in the development of corporate systems.',
+        es: 'Lenguaje robusto ampliamente utilizado en el desarrollo de sistemas corporativos.',
+      },
       stars: 4,
       color: '#F89820',
       icon: icons.java,
@@ -253,7 +294,11 @@ export const skillsData = {
     {
       id: 'c',
       name: 'C',
-      desc: 'Linguagem de baixo nível utilizada para desenvolvimento de sistemas e alto desempenho.',
+      desc: {
+        pt: 'Linguagem de baixo nível utilizada para desenvolvimento de sistemas e alto desempenho.',
+        en: 'Low-level language used for systems development and high-performance applications.',
+        es: 'Lenguaje de bajo nivel utilizado para el desarrollo de sistemas y alto rendimiento.',
+      },
       stars: 3,
       color: '#A8B9CC',
       icon: icons.c,
@@ -261,7 +306,11 @@ export const skillsData = {
     {
       id: 'mysql',
       name: 'MySQL',
-      desc: 'Sistema de gerenciamento de banco de dados relacional amplamente utilizado.',
+      desc: {
+        pt: 'Sistema de gerenciamento de banco de dados relacional amplamente utilizado.',
+        en: 'Widely used relational database management system.',
+        es: 'Sistema de gestión de bases de datos relacionales ampliamente utilizado.',
+      },
       stars: 3,
       color: '#4479A1',
       icon: icons.mysql,
@@ -269,7 +318,11 @@ export const skillsData = {
     {
       id: 'postgres',
       name: 'PostgreSQL',
-      desc: 'Banco de dados relacional avançado, robusto e focado em consistência e performance.',
+      desc: {
+        pt: 'Banco de dados relacional avançado, robusto e focado em consistência e performance.',
+        en: 'Advanced, robust relational database focused on consistency and performance.',
+        es: 'Base de datos relacional avanzada y robusta, centrada en consistencia y rendimiento.',
+      },
       stars: 4,
       color: '#4169E1',
       icon: icons.postgres,
@@ -280,7 +333,11 @@ export const skillsData = {
     {
       id: 'git',
       name: 'Git',
-      desc: 'Sistema de controle de versão essencial para gerenciamento de código.',
+      desc: {
+        pt: 'Sistema de controle de versão essencial para gerenciamento de código.',
+        en: 'Essential version control system for code management.',
+        es: 'Sistema de control de versiones esencial para la gestión del código.',
+      },
       stars: 4,
       color: '#F05032',
       icon: icons.git,
@@ -288,7 +345,11 @@ export const skillsData = {
     {
       id: 'github',
       name: 'GitHub',
-      desc: 'Plataforma para hospedagem, colaboração e versionamento de projetos.',
+      desc: {
+        pt: 'Plataforma para hospedagem, colaboração e versionamento de projetos.',
+        en: 'Platform for project hosting, collaboration, and versioning.',
+        es: 'Plataforma para hospedaje, colaboración y versionado de proyectos.',
+      },
       stars: 5,
       color: '#ffffff',
       icon: icons.github,
@@ -296,7 +357,11 @@ export const skillsData = {
     {
       id: 'docker',
       name: 'Docker',
-      desc: 'Ferramenta para criação e execução de aplicações em containers isolados.',
+      desc: {
+        pt: 'Ferramenta para criação e execução de aplicações em containers isolados.',
+        en: 'Tool for building and running applications in isolated containers.',
+        es: 'Herramienta para crear y ejecutar aplicaciones en contenedores aislados.',
+      },
       stars: 3,
       color: '#2496ED',
       icon: icons.docker,
@@ -304,7 +369,11 @@ export const skillsData = {
     {
       id: 'insomnia',
       name: 'Insomnia',
-      desc: 'Cliente para testes e desenvolvimento de APIs REST.',
+      desc: {
+        pt: 'Cliente para testes e desenvolvimento de APIs REST.',
+        en: 'Client for testing and developing REST APIs.',
+        es: 'Cliente para pruebas y desarrollo de APIs REST.',
+      },
       stars: 4,
       color: '#4000BF',
       icon: icons.insomnia,
@@ -312,7 +381,11 @@ export const skillsData = {
     {
       id: 'vercel',
       name: 'Vercel',
-      desc: 'Plataforma para deploy de aplicações front-end e serverless.',
+      desc: {
+        pt: 'Plataforma para deploy de aplicações front-end e serverless.',
+        en: 'Platform for deploying front-end and serverless applications.',
+        es: 'Plataforma para desplegar aplicaciones front-end y serverless.',
+      },
       stars: 4,
       color: '#ffffff',
       icon: icons.vercel,
@@ -320,7 +393,11 @@ export const skillsData = {
     {
       id: 'aws',
       name: 'AWS',
-      desc: 'Plataforma de computação em nuvem com diversos serviços para aplicações escaláveis.',
+      desc: {
+        pt: 'Plataforma de computação em nuvem com diversos serviços para aplicações escaláveis.',
+        en: 'Cloud computing platform with various services for scalable applications.',
+        es: 'Plataforma de computación en la nube con diversos servicios para aplicaciones escalables.',
+      },
       stars: 2,
       color: '#FF9900',
       icon: icons.aws,
@@ -328,7 +405,11 @@ export const skillsData = {
     {
       id: 'railway',
       name: 'Railway',
-      desc: 'Plataforma simplificada para deploy e gerenciamento de aplicações e bancos de dados.',
+      desc: {
+        pt: 'Plataforma simplificada para deploy e gerenciamento de aplicações e bancos de dados.',
+        en: 'Simplified platform for deploying and managing applications and databases.',
+        es: 'Plataforma simplificada para desplegar y gestionar aplicaciones y bases de datos.',
+      },
       stars: 4,
       color: '#ffffff',
       icon: icons.railway,
@@ -336,10 +417,32 @@ export const skillsData = {
     {
       id: 'figma',
       name: 'Figma',
-      desc: 'Ferramenta de design e prototipação de interfaces digitais.',
+      desc: {
+        pt: 'Ferramenta de design e prototipação de interfaces digitais.',
+        en: 'Design and prototyping tool for digital interfaces.',
+        es: 'Herramienta de diseño y prototipado de interfaces digitales.',
+      },
       stars: 3,
       color: '#F24E1E',
       icon: icons.figma,
     },
   ],
 };
+
+/**
+ * Returns skillsData with descriptions resolved for the given language.
+ * Falls back to PT if the language key doesn't exist.
+ */
+export const getSkillsData = (lang = 'pt') => {
+  const resolved = {};
+  for (const category of Object.keys(rawSkillsData)) {
+    resolved[category] = rawSkillsData[category].map((skill) => ({
+      ...skill,
+      desc: skill.desc[lang] || skill.desc.pt,
+    }));
+  }
+  return resolved;
+};
+
+// Default export kept for backward compatibility (uses PT)
+export const skillsData = getSkillsData('pt');

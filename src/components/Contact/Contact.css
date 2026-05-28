@@ -99,6 +99,8 @@
 }
 
 .download-btn {
+  display: inline-block;
+  text-decoration: none;
   background: linear-gradient(135deg, #4c0410 0%, #ff2157 100%);
   color: #fff;
   padding: clamp(10px, 1.8vh, 16px) clamp(28px, 3.5vw, 40px);

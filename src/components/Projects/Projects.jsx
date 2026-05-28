@@ -1,16 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
-import projectsData from '../../data/projectsData';
+import { getProjectsData } from '../../data/projectsData';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
 const Projects = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // Filter featured projects (or show all if none are featured)
-  const featured = projectsData.filter((p) => p.featured);
-  const displayProjects = featured.length > 0 ? featured : projectsData;
+  const allProjects = getProjectsData(language);
+  const featured = allProjects.filter((p) => p.featured);
+  const displayProjects = featured.length > 0 ? featured : allProjects;
 
   const headerVariants = {
     hidden: { opacity: 0, y: -30 },

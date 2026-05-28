@@ -27,17 +27,21 @@ const Contact = () => {
               JONH MOREIRA - <span className="resume-label">{t.contact.resume}</span>
             </h2>
             
-            <button className="download-btn">
+            <a 
+              href="/jonh-henrique-curriculo.pdf" 
+              download="jonh-henrique-curriculo.pdf" 
+              className="download-btn"
+            >
               {t.contact.download}
-            </button>
+            </a>
 
             <div className="add-me-section">
               <h3 className="add-me-title">{t.contact.addMe}</h3>
               <div className="social-links-grid">
-                <a href="https://www.instagram.com/jonh_moreiradc/" className="social-link-item"><FaInstagram /> Instagram</a>
-                <a href="https://github.com/JonhHenriqueMDC" className="social-link-item"><FaGithub /> GitHub</a>
-                <a href="https://www.linkedin.com/in/jonhmoreira/" className="social-link-item"><FaLinkedin /> LinkedIn</a>
-                <a href="http://discordapp.com/users/1097684546163576972" className="social-link-item"><FaDiscord /> Discord</a>
+                <a href="https://www.instagram.com/jonh_moreiradc/" target="_blank" rel="noopener noreferrer" className="social-link-item"><FaInstagram /> Instagram</a>
+                <a href="https://github.com/JonhHenriqueMDC" target="_blank" rel="noopener noreferrer" className="social-link-item"><FaGithub /> GitHub</a>
+                <a href="https://www.linkedin.com/in/jonhmoreira/" target="_blank" rel="noopener noreferrer" className="social-link-item"><FaLinkedin /> LinkedIn</a>
+                <a href="http://discordapp.com/users/1097684546163576972" target="_blank" rel="noopener noreferrer" className="social-link-item"><FaDiscord /> Discord</a>
               </div>
             </div>
 
@@ -58,10 +62,10 @@ const Contact = () => {
 
           <div className="footer-center">
             <div className="footer-socials">
-              <a href="https://www.instagram.com/jonh_moreiradc/"><FaInstagram /></a>
-              <a href="https://www.linkedin.com/in/jonhmoreira/"><FaLinkedin /></a>
-              <a href="http://discordapp.com/users/1097684546163576972"><FaDiscord /></a>
-              <a href="https://github.com/JonhHenriqueMDC"><FaGithub /></a>
+              <a href="https://www.instagram.com/jonh_moreiradc/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/in/jonhmoreira/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+              <a href="http://discordapp.com/users/1097684546163576972" target="_blank" rel="noopener noreferrer"><FaDiscord /></a>
+              <a href="https://github.com/JonhHenriqueMDC" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
             </div>
             <p className="copyright">Copyright © 2026 JHM DEV</p>
           </div>

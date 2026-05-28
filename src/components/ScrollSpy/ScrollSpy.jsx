@@ -15,12 +15,8 @@ const ScrollSpy = ({ activeSection }) => {
           onClick={(e) => {
             e.preventDefault();
             const target = document.getElementById(section);
-            const container = document.getElementById('main-scroll');
-            if (target && container) {
-              container.scrollTo({
-                top: target.offsetTop,
-                behavior: 'smooth'
-              });
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
             }
           }}
         ></a>
