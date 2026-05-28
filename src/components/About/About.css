@@ -37,12 +37,13 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(0.4rem, 1vh, 1.5rem);
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 1.5vh, 24px);
   }
 }
 

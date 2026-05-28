@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import './Header.css';
 
 const Header = ({ activeSection }) => {
   const { language, setLanguage, t } = useLanguage();
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const mobileLangRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileLangRef.current && !mobileLangRef.current.contains(event.target)) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const langItems = [
+    { code: 'pt', label: 'PT', flag: '🇧🇷' },
+    { code: 'en', label: 'EN', flag: '🇺🇸' },
+    { code: 'es', label: 'ES', flag: '🇪🇸' }
+  ];
+  const currentLangItem = langItems.find(item => item.code === language) || langItems[0];
 
   const navItems = [
     { id: 'hero', label: t.nav.hero },
@@ -60,21 +79,33 @@ const Header = ({ activeSection }) => {
       </header>
 
       {/* MOBILE LANGUAGE SWITCHER */}
-      <div className="mobile-lang-switcher">
-        {[
-          { code: 'pt', label: 'PT', flag: '🇧🇷' },
-          { code: 'en', label: 'EN', flag: '🇺🇸' },
-          { code: 'es', label: 'ES', flag: '🇪🇸' }
-        ].map((item) => (
-          <button
-            key={item.code}
-            onClick={() => setLanguage(item.code)}
-            className={`mobile-lang-btn ${language === item.code ? 'active' : ''}`}
-          >
-            <span className="mobile-lang-flag">{item.flag}</span>
-            <span className="mobile-lang-text">{item.label}</span>
-          </button>
-        ))}
+      <div className="mobile-lang-switcher" ref={mobileLangRef}>
+        <button 
+          onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)} 
+          className="mobile-lang-trigger"
+        >
+          <span className="mobile-lang-flag">{currentLangItem.flag}</span>
+          <span className="mobile-lang-text">{currentLangItem.label}</span>
+          <span className={`mobile-lang-arrow ${isLangDropdownOpen ? 'open' : ''}`}>▼</span>
+        </button>
+
+        {isLangDropdownOpen && (
+          <div className="mobile-lang-dropdown">
+            {langItems.map((item) => (
+              <button
+                key={item.code}
+                onClick={() => {
+                  setLanguage(item.code);
+                  setIsLangDropdownOpen(false);
+                }}
+                className={`mobile-lang-dropdown-btn ${language === item.code ? 'active' : ''}`}
+              >
+                <span className="mobile-lang-flag">{item.flag}</span>
+                <span className="mobile-lang-text">{item.label}</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

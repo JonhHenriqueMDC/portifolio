@@ -146,6 +146,7 @@ code {
   height: 100vh;
   width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none !important;
@@ -158,6 +159,7 @@ code {
     height: auto;
     min-height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
 }
@@ -188,7 +190,7 @@ code {
     min-height: auto;
     max-height: none;
     overflow: visible;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 120px;
+    padding-bottom: 80px;
   }
 }

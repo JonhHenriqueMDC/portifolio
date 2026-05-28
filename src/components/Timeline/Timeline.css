@@ -149,6 +149,7 @@
   
   .timeline-content {
     max-width: 100%;
+    padding-bottom: 24px;
   }
   
   .timeline-title {

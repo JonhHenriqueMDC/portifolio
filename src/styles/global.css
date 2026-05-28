@@ -77,8 +77,8 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   z-index: -1;
   background: radial-gradient(circle at 50% 0%, rgba(255, 38, 60, 0.08) 0%, transparent 60%);
 }
